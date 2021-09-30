@@ -9,8 +9,8 @@ namespace TodoList.Data
         {
             
         }
-        public virtual DbSet<ItemData> Items { get; set; }
-        public virtual DbSet<ItemList> Lists { get; set; }
+        public virtual DbSet<ItemData> Items {get;set;}
+        public virtual DbSet<ItemList> Lists {get;set;}
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -20,7 +20,7 @@ namespace TodoList.Data
             {
                 entity.HasOne(d => d.ItemList)
                         .WithMany(p => p.ItemDatas)
-                        .HasForeignKey(d => d.Id)
+                        .HasForeignKey(d => d.ListId)
                         .OnDelete(DeleteBehavior.Restrict)
                         .HasConstraintName("FK_ItemData_ItemList");
             });

@@ -1,5 +1,8 @@
+using HotChocolate;
+
 namespace TodoList.Models
 {
+    [GraphQLDescription("This is item data")]
     public class ItemData
     {
         public int Id { get; set; }
